@@ -1,1 +1,181 @@
-hello world
+\documentclass[12pt,oneside]{book}
+
+\usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+	\renewcommand{\chaptermark}[1]{ \markboth{#1}{} }
+	\renewcommand{\sectionmark}[1]{ \markright{#1}{} }
+    \fancyfoot[C]{\thepage}
+
+\setlength{\parindent}{0pt}
+\newtheorem*{goldstone}{Goldstone theorem}
+
+\begin{document}
+
+\chapter*{Higgs mechanism}
+
+\section*{Higgs mechanism in an Abelian theory}
+
+Complex scalar field $\phi$: 
+
+\begin{equation}
+    \phi = \frac{1}{\sqrt{2}}(\phi_1 + i\phi_2)
+\end{equation}
+
+Lagrangian $\mathcal{L}$ of local Abelian U(1) symmetry with $\mu^2 < 0$ and $\lambda \in \mathbb{R}$: 
+
+\begin{align}
+    \mathcal{L} &= -\frac{1}{4}F^{\mu\nu}F_{\mu\nu} + (D_{\mu} \phi)^{\dagger}(D^{\mu} \phi) - \mu^2\phi^{\dagger}\phi - \lambda(\phi\phi^{\dagger})^2 \\
+                &= -\frac{1}{4}F^{\mu\nu}F_{\mu\nu} + (D_{\mu} \phi)^{\dagger}(D^{\mu} \phi) - \underbrace{(\mu^2|\phi|^2 + \lambda|\phi|^4)}_{V(\phi)} \nonumber
+\end{align}
+
+
+$F^{\mu\nu}$ is the field strength tensor and $D^\mu$ is the coraviant derivative with the massless photon field $A^\mu$:
+
+\begin{equation}
+    D_\mu = \partial_\mu - ieA_\mu
+\end{equation}
+
+Under local U(1) $\phi$ and $A^\mu$ transform like
+
+\begin{equation}
+    \phi \to e^{i\alpha(x)}\phi, \quad \phi^{\dagger} \to e^{-i\alpha(x)}\phi, \quad A_\mu \to A_\mu + \frac{1}{e}\partial_\mu{\alpha(x)}
+\end{equation}
+
+$\phi_{min}$ minimizing $V(\phi)$ due to broken symmetry:
+
+\begin{equation}
+   |\phi_{min}| = \sqrt{\frac{-\mu^2}{2\lambda}} \equiv \frac{v}{\sqrt{2}}
+\end{equation}
+
+$v$ is the vacuum expectation value. The phase of $\phi$ is set in the way that $\phi_{1, min} = v$ and $\phi_{2, min} = 0$. Choose a polar paramatrazation of $\phi$ around the $v$ with the real scalar fields $h$ and $\xi$:
+
+\begin{equation}
+    \phi = \frac{1}{\sqrt{2}}(v + h)e^{i\xi}
+\end{equation}
+
+Plug this parametrization in equation 2:
+
+\begin{align}
+    \mathcal{L} &= -\frac{1}{4}F^{\mu\nu}F_{\mu\nu} + \frac{1}{2}\partial_\mu h\partial^{\mu}h + \frac{1}{2}\partial_\mu\xi\partial^{\mu}\xi - \underbrace{v^2\lambda}_{=\frac{1}{2}m_h^2}h^2 + \underbrace{\frac{e^2v^2}{2}}_{=\frac{1}{2}m^2_A}A_\mu A^\mu \\ 
+                &- e(vA^\mu\partial_\mu\xi + A^\mu\xi\partial_\mu h) + \frac{e^2}{2}(2A^\mu A_\mu vh + A^\mu A_\mu h^2 + A^\mu A_\mu \xi^2) \nonumber \\
+                &- v\lambda(h^3 + h\xi^2) - \frac{\lambda}{2}h^2\xi^2 - \frac{\lambda}{4}(h^4 + \xi^4 -v^4) \nonumber
+\end{align}
+
+The $h$ is a massive particle with mass $m_h = v^2\lambda$, the photon catched up a mass $m_A = ev$ and the $\xi$ is the massless Goldstone boson. 
+
+\begin{goldstone}
+    For each spontaneously broken global symmetry, a massless boson appears.
+\end{goldstone}
+
+After the spontaneous violation of U(1) the number degrees of freedom is $n = 5$ ($h$, $\xi$ and 3 from the massive photon) compared to before $n = 4$ ($\phi_1$, $\phi_2$ and 2 from the massless photon). \newline
+
+Addtional degree of freeodm can be used to fix gauge of the U(1) transformation to the unitary gauge:
+
+\begin{equation}   
+    \alpha(x) = - \xi(x)
+\end{equation}
+
+U(1) transformation in unitary gauge:
+
+\begin{equation}
+    \phi \to e^{-i\xi(x)}\phi, \quad \phi^{\dagger} \to e^{i\xi(x)}\phi, \quad A_\mu \to A_\mu - \frac{1}{e}\partial_\mu{\xi(x)}
+\end{equation}
+
+After fixing to unitary gauge $\phi$ has the form:
+
+\begin{equation}
+    \phi = \frac{1}{\sqrt{2}}(v + h)
+\end{equation}
+
+Plugged this into the $\mathcal{L}$ in equation 2:
+
+\begin{align}
+    \mathcal{L} &= -\frac{1}{4}F^{\mu\nu}F_{\mu\nu} + \frac{1}{2}\partial_\mu h\partial^{\mu}h - v^2\lambda h^2 + \frac{e^2v^2}{2}A_\mu A^\mu \\ 
+              &+ \frac{e^2}{2}(2A^\mu A_\mu vh + A^\mu A_\mu h^2) - v\lambda h^3 - \frac{\lambda}{4}(h^4 -v^4) \nonumber
+\end{align}
+
+The degree of freedom of the Goldstone boson $\xi$ has been absorbed by the photon $A_\mu$, which acquired mass and has a longitudinal polarization due to the Goldstone boson. The Langrangian $\mathcal{L}$ is still invariant under U(1) transformation with unitary gauge. \newpage
+
+\section*{Higgs mechanism in the Standard Model}
+
+Complex doublets of scalar fields with charged complex scalar field $\phi^+$ the neutral complex scalar field $\phi^{0}$:
+
+\begin{equation}
+    \Phi = \begin{pmatrix} \phi^{+} \\ \phi^{0} \end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix} \phi_1 + i\phi_2 \\ \phi_3 + i\phi_4 \end{pmatrix}
+\end{equation}
+
+Electroweak Langragian $\mathcal{L}_{EW}$ only with massless boson field $W_\mu^{i}$ and $B_\mu$ and $\Phi$:
+
+\begin{align}
+    \mathcal{L}_{EW} &= -\frac{1}{4} W^{a}_{\mu\nu}W^{\mu\nu}_a -\frac{1}{4} B_{\mu\nu}B^{\mu\nu} + (D_{\mu} \Phi)^{\dagger}(D^{\mu} \Phi) - \mu^2\Phi^{\dagger}\Phi - \lambda(\Phi\Phi^{\dagger})^2 \\
+                    &=  -\frac{1}{4} W^{a}_{\mu\nu}W^{\mu\nu}_a -\frac{1}{4} B_{\mu\nu}B^{\mu\nu} + (D_{\mu} \Phi)^{\dagger}(D^{\mu} \Phi) - \underbrace{(\mu^2|\Phi|^2 + \lambda|\Phi|^4)}_{V(\Phi)} \nonumber
+\end{align}
+
+In this case the covariant derivate $D_\mu$ with the three Pauli matrices $\tau_a$ is:
+
+\begin{equation}
+    D_\mu = \partial_\mu - ig_2 \frac{\tau_a}{2}W^a_\mu - ig_1\frac{Y_h}{2}B_\mu
+\end{equation}
+
+The fields transform under SU(2)xU(1) like:
+
+\begin{align}
+    \Phi &\to e^{i\alpha^a\frac{\tau_a(x)}{2}}e^{i\frac{Y_h}{2} \alpha_h(x)}\Phi \\
+    B_\mu &\to B_\mu -\frac{1}{g_1}\partial_\mu\alpha_h(x) \nonumber \\ 
+    W_\mu &\to e^{i\alpha^a\frac{\tau_a(x)}{2}} \frac{\tau_a}{2}W^{a}_{\mu} e^{-i\alpha^a\frac{\tau^\dagger_a(x)}{2}} - \frac{1}{g_2}\partial_\mu (e^{i\alpha^a\frac{\tau_a(x)}{2}} e^{-i\alpha^a\frac{\tau^\dagger_a(x)}{2}})
+\end{align}
+
+$\Phi_{min}$ minimizing $V(\Phi)$ due to broken symmetry:
+
+\begin{equation}
+   |\Phi_{min}| = \sqrt{\frac{-\mu^2}{2\lambda}} \equiv \frac{v}{\sqrt{2}}
+\end{equation}
+
+The choice of two phase is set that the charged $\phi^{+}$ has no vacuum expectation value ($\phi_{1,min} = \phi_{2,min} = 0$) and that for the neutral $\phi^{0}$ the real part has a non vanishing vacuum expectation value ($\phi_{3, min} = v, \phi_{4, min} = 0$). Parametrize $\Phi$ around vacuum expectation value in polar form:
+
+\begin{equation}
+    \Phi = \frac{1}{\sqrt{2}}e^{i\xi^a\frac{\tau_a}{2}} \begin{pmatrix} 0 \\ v + h \end{pmatrix}
+\end{equation}
+
+The $h$ is a scalar field, which will be the Higgs boson. The three $\xi^a$ are the massless Goldstone bosons due to the broken symmetrie, one for each generator $\tau_a$, which will lead to 3 additional degrees of freedom. Choosing again the unitary gauge:
+
+\begin{equation}
+    \alpha_a = -\xi_a(x)
+\end{equation} 
+
+This leads to the from of $\Phi$:
+
+\begin{equation}
+    \Phi = \frac{1}{\sqrt{2}}\begin{pmatrix} 0 \\ v + h \end{pmatrix}
+\end{equation}
+
+Switch to mass eigenstates of $W^{a}_\mu$ and $B_\mu$:
+
+\begin{align}
+    \begin{pmatrix} W^+_\mu \\ W^-_\mu \end{pmatrix} &= \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & -i \\ 1 & i \end{pmatrix} \begin{pmatrix}  W^1_\mu\\ W^2_\mu \end{pmatrix} \\
+    \begin{pmatrix} Z_\mu \\ A_\mu \end{pmatrix} &= \frac{1}{\sqrt{g_2^2+g_1^2}} \begin{pmatrix} g_2 & - g_1 \\ g_2 & g_1 \end{pmatrix} \begin{pmatrix}  W^3_\mu\\ B_\mu \end{pmatrix}
+\end{align}
+
+Plug this form of $\Phi$ into $\mathcal{L}_{EW}$ of equation 13:
+
+\begin{equation}
+    \mathcal{L}_{EW} = \frac{1}{2} \partial_\mu h\partial^{\mu} h + (v + h)^2 (\frac{g_2^2}{4}W^{+, \mu}W^{-}_\mu + \frac{\sqrt{g_1+g_2}}{8}Z^\mu Z_\mu) + \text{ interaction terms}
+\end{equation} 
+
+The charged W boson and the Z boson appeared with mass $m_W = \frac{1}{2}vg_2$ and $m_Z = \frac{1}{2}v\sqrt{g_2^2+g_1^2}$, the photon $A_\mu$ stays massless. The three degrees of freedom from Goldstone bosons $\xi^{a}$ have been absorbed by the massive W and Z boson. The U(1) stays unbroken which leads to the massless photon.  \newline 
+
+Used paper: \newline
+
+https://arxiv.org/pdf/hep-ph/0703280.pdf \newline
+https://arxiv.org/pdf/0705.4264.pdf
+
+
+\end{document}
+
+

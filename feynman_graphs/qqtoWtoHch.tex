@@ -1,0 +1,44 @@
+\begin{tikzpicture}[node distance=1.5cm]
+    \coordinate[label=left:$q$] (q1);
+    \coordinate[below=3cm of q1, label=left:$q'$] (q2);
+   
+    \coordinate[below =1.5cm of q1] (k1); \coordinate[right =1.5cm of k1] (v1); 
+    \coordinate[right =2cm of v1] (v2); \coordinate[right =1.5cm of v2] (k2);
+    
+    \coordinate[above=1.5 cm of k2] (h1);
+    \coordinate[below=3cm of h1] (Hc);
+
+    \coordinate[right =1.5cm of h1] (k3); 
+    \coordinate[above =0.5cm of k3, label=right:$b$] (b1); 
+    \coordinate[below =0.5cm of k3, label=right:$b$] (b2);  
+
+    \coordinate[right =1.5cm of Hc] (k4); 
+    \coordinate[above =1.5cm of k4] (h2); 
+    \coordinate[below =1.5cm of k4] (W); 
+
+    \coordinate[right =1.5cm of h2] (k5); 
+    \coordinate[above =0.5cm of k5, label=right:$b$] (b3); 
+    \coordinate[below =0.5cm of k5, label=right:$b$] (b4);
+
+    \coordinate[right =1.5cm of W] (k6); 
+    \coordinate[above =0.5cm of k6, label=right:$\ell$] (l); 
+    \coordinate[below =0.5cm of k6, label=right:$\nu_{\ell}$] (nu);
+
+    \draw[fermion] (q1) -- (v1);
+    \draw[fermion] (v1) -- (q2);
+    \draw[photon] (v1) -- node[label=above:$W^{\mp}$] {} (v2);
+
+    \draw[higgs] (h1) -- node[label=above:$h$] {} (v2);
+    \draw[fermion] (h1) -- (b1);
+    \draw[fermion] (b2) -- (h1);
+
+    \draw[higgs] (Hc) -- node[label=below:$H^{\pm}$] {} (v2);
+    \draw[higgs] (Hc) -- node[label=above:$h$] {} (h2);
+    \draw[photon] (Hc) -- node[label=below:$W^{\mp}$] {} (W);
+
+    \draw[fermion] (h2) -- (b3);
+    \draw[fermion] (b4) -- (h2);
+
+    \draw[fermion] (W) -- (l);
+    \draw[fermion] (nu) -- (W);
+\end{tikzpicture}
